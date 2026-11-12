@@ -1,0 +1,93 @@
+.garantia-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  padding-bottom: 30px;
+
+}
+
+.titulo {
+  width: 50%;
+  padding-right: 5%;
+}
+.contenido {
+  width: 45%;
+}
+
+
+.tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 24px;
+  text-align: left;
+  opacity: 0.8;
+  /* Ajusta la opacidad según el diseño */
+}
+
+h2 {
+  margin: 0 0 24px 0;
+  line-height: 0.95;
+  padding-left: 0cqmin;
+  font-size: 2.5em;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding-left: 0%;
+}
+
+.pregunta{
+  border-bottom: 1px solid #dedcdc;
+  padding: 15px 0;
+}
+.pregunta h3{
+  font-size: 1em;
+  margin-bottom: 0;
+  line-height: 0;
+}
+.pregunta p{
+  margin-bottom: 0;
+}
+
+.contenido .tagline {
+  padding-bottom: 10px;
+border-bottom: 1px solid #121417;
+margin-bottom: 10px
+}
+/* ==========================================================================
+   Media Queries para Móvil (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .garantia-section {
+    padding-bottom: 40px;
+  }
+
+  /* Cambiamos la dirección para apilar las columnas una sobre otra */
+  .container {
+    flex-direction: column;
+  }
+
+  .titulo {
+    width: 100%; /* Pasa a ocupar todo el ancho disponible */
+    padding-right: 0; /* Quitamos el padding lateral derecho */
+    margin-bottom: 40px; /* Agregamos separación entre este bloque y las preguntas de abajo */
+  }
+
+  h2 {
+    font-size: 2em; /* Ajustamos levemente el tamaño del título */
+  }
+
+  .contenido {
+    width: 100%; /* Las preguntas pasan a ocupar todo el ancho disponible */
+  }
+}

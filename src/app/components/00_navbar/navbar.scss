@@ -1,0 +1,122 @@
+/* Contenedor total para aplicar la línea inferior y fijarlo */
+.navbar-wrapper {
+  width: 100%;
+  border-bottom: 1px solid #dedcdc;
+  position: fixed; /* Fija el navbar en la parte superior */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #f3f1ec;
+}
+
+/* El navbar flexbox */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+}
+
+/* Ajuste del logo */
+.logo img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+
+/* Los links del centro */
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: var(--text-2);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+
+    &:hover {
+     color: #DA3B2A;
+    }
+  }
+}
+
+/* Estilos base para el botón hamburguesa (oculto en escritorio) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #111111;
+    transition: all 0.3s ease;
+  }
+}
+
+/* Ocultar botón secundario de móvil por defecto */
+.mobile-btn {
+  display: none;
+}
+
+/* ==========================================================================
+   Menú Móvil (Media Query)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* Mostrar el icono hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Ocultar el botón original de escritorio */
+  .desktop-btn {
+    display: none;
+  }
+
+  /* Transformar los enlaces en un menú desplegable FULL SCREEN */
+  .nav-links {
+    position: fixed; /* Fixed asegura que cubra la pantalla incluso si haces scroll */
+    top: 90px; /* Inicia justo debajo de la barra */
+    right: -100%; /* Escondido a la derecha (cambio solicitado) */
+    height: calc(100vh - 90px); /* Ocupa el 100% del alto restante de la pantalla */
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea los elementos arriba */
+    background-color: #f3f1ec;
+    width: 100%;
+    text-align: center;
+    transition: right 0.3s ease-in-out; /* Animamos la propiedad right */
+    padding: 40px 0; /* Padding superior para separar los links */
+    gap: 35px; /* Más espacio entre los links para que se vea mejor a pantalla completa */
+    overflow-y: auto; /* Agrega scroll interno si la pantalla del móvil es muy baja */
+
+    /* Clase activa controlada por Angular */
+    &.open {
+      right: 0; /* El menú entra desde la derecha y se detiene en 0 */
+    }
+  }
+
+  /* Mostrar el botón dentro del menú desplegado */
+  .mobile-btn {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  /* Animación de la cruz (X) en la hamburguesa */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

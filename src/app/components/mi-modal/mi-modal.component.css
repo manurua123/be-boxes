@@ -1,0 +1,227 @@
+/* ==========================================================================
+   Estructura del Modal (Ventana Emergente)
+   ========================================================================== */
+.modal-container {
+  background-color: #f3f1ec;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 !important;
+
+  overflow-y: auto;
+  /* Mantiene el scroll vertical normal */
+  overflow-x: hidden;
+  /* <--- AGREGA ESTA LÍNEA PARA MATAR EL SCROLL HORIZONTAL */
+
+  padding: 60px 80px;
+  box-sizing: border-box;
+  /*[cite: 20] */
+}
+.back-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888888;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 48px;
+}
+
+/* ==========================================================================
+   Encabezado y Título Principal
+   ========================================================================== */
+.header-section {
+  margin-bottom: 80px;
+}
+
+.tagline {
+  color: #e23b3b;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* Estilo para el H2 principal para que imite al H1 original */
+h2.titulo-modal {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-size: 54px;
+  line-height: 1.1;
+  /* Corrige el solapamiento */
+  margin: 0 0 24px 0;
+  color: #111111;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #333333;
+}
+
+.limit-width {
+  max-width: 680px;
+}
+
+/* ==========================================================================
+   Secciones (Qué incluye, Cómo se contrata)
+   ========================================================================== */
+.que-incluye-section,
+.como-se-contrata-section {
+  margin-bottom: 80px;
+}
+
+/* Títulos secundarios de sección */
+.que-incluye-section h2,
+.como-se-contrata-section h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 26px;
+  margin-bottom: 16px;
+  color: #111111;
+}
+
+/* Grilla - Qué incluye */
+.lista-items {
+  border-top: 2px solid #111111;
+}
+
+.item {
+  padding: 24px 0;
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  color: #333333;
+  border-bottom: 1px solid #dedcdc;
+}
+
+/* Grilla - Cómo se contrata */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid #111111;
+  border-bottom: 1px solid #dedcdc;
+  border-left: 1px solid #dedcdc;
+  border-right: 1px solid #dedcdc;
+}
+
+.step {
+  padding: 32px 24px;
+}
+
+.step:not(:last-child) {
+  border-right: 1px solid #dedcdc;
+}
+
+.step-number {
+  display: block;
+  color: #e23b3b;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.step p {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  color: #333333;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Footer y Botón
+   ========================================================================== */
+.footer-section {
+  margin-top: 60px;
+}
+
+.separador-final {
+  border: none;
+  border-top: 1px solid #dedcdc;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: 0;
+}
+
+.footer-section p {
+  margin-bottom: 32px;
+}
+
+.btn-primary {
+  background-color: #111111;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333333;
+}
+
+/* ==========================================================================
+   Ajustes de Responsive
+   ========================================================================== */
+/* ==========================================================================
+   Ajustes de Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  .modal-container {
+    padding: 40px 24px;
+    /* Reduce márgenes en celulares[cite: 20] */
+  }
+
+  h2.titulo-modal {
+    font-size: 40px;
+    /* Ajuste del título[cite: 20] */
+  }
+
+  /* Reducimos los huecos blancos gigantes entre secciones para móvil */
+  .header-section,
+  .que-incluye-section,
+  .como-se-contrata-section {
+    margin-bottom: 40px;
+  }
+
+  /* Apilamos los pasos en una columna[cite: 20] */
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step {
+    padding: 24px 20px;
+    /* Achicamos un poco el espacio interno de cada paso */
+  }
+
+  .step:not(:last-child) {
+    border-right: none;
+    /* Quitamos la línea vertical[cite: 20] */
+    border-bottom: 1px solid #dedcdc;
+    /* Agregamos la línea horizontal separadora[cite: 20] */
+  }
+
+  /* Mejoramos el botón para que sea más fácil de tocar */
+  .btn-primary {
+    width: 100%;
+    /* El botón ocupa todo el ancho de la ventana */
+    text-align: center;
+    padding: 16px 20px;
+    /* Un poco más de área para el dedo */
+  }
+}

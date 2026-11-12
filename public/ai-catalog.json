@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Catálogo de Servicios de BE-BOXES",
+  "description": "Unidad de servicios de Berlin Houses para obras y el hogar en La Plata.",
+  "provider": {
+    "name": "BE-BOXES",
+    "parentCompany": "Berlin Houses",
+    "location": "Boulevard 82 690, La Plata, Argentina",
+    "coverageAreas": ["La Plata", "City Bell", "Gonnet", "Villa Elisa", "Berisso"],
+    "contact": {
+      "whatsapp": "+54 9 221 408-1328",
+      "email": "boxes@berlin.com.ar"
+    }
+  },
+  "serviceCategories": [
+    {
+      "id": "box-01",
+      "name": "BOX 01 CONSTRUCCIÓN",
+      "targetAudience": ["Desarrolladores", "Estudios de Arquitectura", "Constructoras", "Propietarios en obra", "Inversores"],
+      "services": [
+        "Arquitectura y Diseño",
+        "Ejecución y Dirección de Obra",
+        "Herrería",
+        "Carpintería",
+        "Aberturas de PVC y Aluminio",
+        "Decks de PVC",
+        "Señales débiles"
+      ]
+    },
+    {
+      "id": "box-02",
+      "name": "BOX 02 HOGAR",
+      "targetAudience": ["Propietarios", "Inmobiliarias", "Administradores", "Consorcios", "Inversores"],
+      "services": [
+        "Mantenimiento General",
+        "Reparaciones de plomería, electricidad y albañilería",
+        "Regulación de muebles y aberturas",
+        "Puesta a punto",
+        "Mantenimiento de Edificios y Consorcios",
+        "Seguridad y Conectividad"
+      ],
+      "subscriptions": [
+        "Abono Hogar",
+        "Abono Edificios y Consorcios"
+      ]
+    }
+  ],
+  "features": [
+    "Presupuesto cerrado",
+    "Garantía escrita",
+    "Un solo interlocutor"
+  ]
+}

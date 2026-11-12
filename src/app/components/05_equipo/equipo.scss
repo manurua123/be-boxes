@@ -1,0 +1,86 @@
+.equipo-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+  padding-bottom: 30px;
+
+  border-bottom: 2px solid #121417;
+}
+
+.titulo {
+  width: 55%;
+  padding-right: 10%;
+}
+.img {
+  width: 35%;
+}
+
+.img img {
+  width: 90%;
+  filter: grayscale(100%);
+}
+.tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 24px;
+  text-align: left;
+  opacity: 0.8;
+  /* Ajusta la opacidad según el diseño */
+}
+
+h2 {
+  margin: 0 0 24px 0;
+  line-height: 0.95;
+  padding-left: 0cqmin;
+  font-size: 2.5em;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding-left: 0%;
+}
+
+
+/* ==========================================================================
+   Media Queries para Móvil (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .equipo-section {
+    padding-bottom: 40px;
+  }
+
+  /* Cambiamos la dirección de fila a columna para apilar texto e imagen */
+  .container {
+    flex-direction: column;
+  }
+
+  .titulo {
+    width: 100%; /* Pasa a ocupar todo el ancho */
+    padding-right: 0; /* Quitamos el espacio de la derecha que servía en escritorio */
+    margin-bottom: 30px; /* Agregamos separación entre el texto y la imagen de abajo */
+  }
+
+  h2 {
+    font-size: 2em; /* Ajuste sutil del tamaño de fuente */
+  }
+
+  .img {
+    width: 100%; /* Pasa a ocupar todo el ancho */
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+  }
+
+  .img img {
+    width: 100%; /* Permite que la imagen crezca para llenar la pantalla */
+  }
+}

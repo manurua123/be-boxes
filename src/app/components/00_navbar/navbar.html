@@ -1,0 +1,38 @@
+<header class="navbar-wrapper">
+  <!-- Este es el div clave que va a limitar el ancho[cite: 2] -->
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">
+        <a routerLink="/" (click)="closeMenu()">
+          <img src="assets/img/BE-BOXES_logo_negro.png" alt="Logo" />
+        </a>
+      </div>
+
+      <!-- Icono de Menú Hamburguesa -->
+      <div class="hamburger" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Links del centro con la clase dinámica para abrir/cerrar -->
+      <div class="nav-links" [class.open]="isMenuOpen">
+        <a routerLink="/hogar" (click)="closeMenu()">{{ 'navbar.hogar' | content }}</a>
+        <a routerLink="/construccion" (click)="closeMenu()">{{ 'navbar.construccion' | content }}</a>
+        <a routerLink="/nosotros" (click)="closeMenu()">{{ 'navbar.nosotros' | content }}</a>
+        <a routerLink="/equipo" (click)="closeMenu()">{{ 'navbar.equipo' | content }}</a>
+        <a routerLink="/abonos" (click)="closeMenu()">{{ 'navbar.abonos' | content }}</a>
+
+        <!-- Botón de WhatsApp que se mostrará dentro del menú en móvil -->
+        <button class="btn-primary mobile-btn" (click)="abrirWhatsApp(); closeMenu()">
+          {{ 'navbar.escribinos' | content }}
+        </button>
+      </div>
+
+      <!-- El botón oscuro de la derecha para escritorio[cite: 1, 2] -->
+      <button class="btn-primary desktop-btn" (click)="abrirWhatsApp()">
+        {{ 'navbar.escribinos' | content }}
+      </button>
+    </nav>
+  </div>
+</header>

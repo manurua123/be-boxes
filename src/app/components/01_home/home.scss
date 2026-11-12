@@ -1,0 +1,130 @@
+/* ==========================================================================
+   Contenedor Principal
+   ========================================================================== */
+.hero-section {
+  /* Fondo general asumiendo que hereda el color arena del diseño */
+  padding: 100px 0; /* Espaciado arriba y abajo del contenedor */
+  background-color: #f3f1ec;
+}
+
+.cinta{
+  width: 100%;
+}
+
+/* ==========================================================================
+   Textos y Títulos
+   ========================================================================== */
+.hero-content {
+  max-width: 600px; /* Limita el ancho para que el texto baje de línea como en el diseño[cite: 4] */
+  margin-bottom: 80px; /* Espacio antes del banner de características */
+}
+
+.tagline {
+  color: #e23b3b; /* Color rojo del diseño, ajusta el hex exacto[cite: 4] */
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 24px;
+}
+
+h1 {
+  /* H1 hereda los estilos globales del paso 1, solo ajustamos márgenes */
+  margin: 0 0 24px 0;
+  line-height: 0.95;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
+.hero-botones {
+  display: flex;
+  gap: 16px; /* Separación entre botones[cite: 4] */
+}
+
+/* Botón secundario (transparente con borde negro)[cite: 4] */
+.btn-outline {
+  background-color: transparent;
+  color: #111111;
+  border: 1px solid #111111;
+  padding: 14px 28px;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #111111;
+    color: #ffffff;
+  }
+}
+
+/* ==========================================================================
+   Grilla de Características (Banner inferior)
+   ========================================================================== */
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño[cite: 4] */
+  border: 1px solid #dedcdc; /* Borde exterior sutil[cite: 4] */
+}
+
+.feature {
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  /* Agrega la línea separadora vertical solo a los primeros dos elementos[cite: 4] */
+  &:not(:last-child) {
+    border-right: 1px solid #dedcdc;
+  }
+
+  h2 {
+    margin: 0;
+    /* H2 hereda font-size: 26px y font-weight: 700 del global */
+  }
+
+  .etiqueta {
+    margin: 0;
+    /* Hereda los estilos Space Mono 11px del global */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-features {
+
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna en celulares */
+  }
+  .feature:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid #dedcdc; /* Línea separadora horizontal en móvil */
+  }
+  .hero-botones {
+    flex-direction: column; /* Botones apilados en celulares */
+  }
+.hero-content {
+  padding-top: 40px;
+  max-width: 600px; /* Limita el ancho para que el texto baje de línea como en el diseño[cite: 4] */
+  margin-bottom: 80px; /* Espacio antes del banner de características */
+}
+  .cinta {
+  width: 100%;
+  height: 25px; /* Sube o baja este valor según el grosor que busques (ej. 30px o 40px) */
+  object-fit: cover; /* Hace zoom al patrón para llenar el alto sin estirarlo de forma irreal */
+  object-position: center; /* Asegura que el patrón quede bien centrado */
+  margin: 0px 0; /* Agrega un poco de espacio en blanco arriba y abajo para que la cinta respire */
+}
+}

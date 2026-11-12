@@ -1,0 +1,124 @@
+.box2-section {
+  padding-top: 80px;
+  border-bottom: 1px solid #dedcdc;
+  padding-bottom: 80px;
+}
+
+.titulo {
+  border-bottom: 2px solid #121417;
+}
+
+.tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 24px;
+  text-align: left;
+  opacity: 0.8;
+  /* Ajusta la opacidad según el diseño */
+}
+
+h2 {
+  margin: 0 0 24px 0;
+  line-height: 0.95;
+  padding-left: 30%;
+  font-size: 2.5em;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding-left: 30%;
+}
+
+.cuadrados {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #dcdcdc;
+  border-left: 1px solid #dcdcdc;
+  width: 100%;
+}
+
+.cuadrado {
+  padding: 40px 45px;
+  border-right: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.cuadrado .tagline {
+  font-family: monospace;
+  color: #666;
+  /* Color grisáceo para los números */
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  /* Espacio debajo del número */
+}
+
+/* Estilo para la palabra "NUEVO" */
+.cuadrado .tagline span {
+  color: #da3b2a;
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* Estilos para los títulos basados en la imagen */
+.cuadrado h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  /* Convierte el texto a mayúsculas */
+  color: #111;
+  /* Color muy oscuro */
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 800;
+  /* Letra más gruesa */
+}
+
+.cuadrado p:not(.tagline) {
+  margin: 0;
+  color: #3b4654;
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* ==========================================================================
+   Media Queries para Móvil (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .box2-section {
+    padding-top: 40px;
+    /* Achicamos el margen superior en móvil */
+    padding-bottom: 40px;
+    /* Achicamos el margen inferior en móvil */
+  }
+
+  h2 {
+    padding-left: 0;
+    /* Eliminamos el margen del 30% para que use todo el ancho */
+    font-size: 2em;
+    /* Reducimos sutilmente el tamaño de la fuente */
+  }
+
+  .descripcion {
+    padding-left: 0;
+    /* Eliminamos el margen del 30% */
+    margin-bottom: 30px;
+  }
+
+  /* Transformamos la grilla de 4 columnas a 1 sola columna apilada */
+  .cuadrados {
+    grid-template-columns: 1fr;
+  }
+
+  .cuadrado {
+    padding: 30px 20px;
+    /* Reducimos el padding interno para aprovechar el espacio en pantallas chicas */
+  }
+}

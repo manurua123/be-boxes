@@ -1,0 +1,141 @@
+ {
+  "seo": {
+    "title": "BE—BOXES® · Arreglos, instalaciones y mejoras para tu casa y tu obra · La Plata",
+    "description": "Arreglos, instalaciones y mejoras para tu casa y tu obra en La Plata. Presupuesto cerrado y garantía escrita."
+  },
+  "navbar": {
+    "hogar": "Hogar",
+    "construccion": "Construcción",
+    "nosotros": "Cómo trabajamos",
+    "equipo": "Equipo",
+    "abonos": "Abonos",
+    "escribinos": "Escribinos"
+  },
+
+  "home": {
+    "tagline": "Box 01 · Mantenimiento · Gran La Plata",
+    "title": "Tu casa merece un equipo",
+    "description": "Un solo equipo para resolver cualquier trabajo en tu obra o en tu casa, de principio a fin, con presupuesto cerrado y garantía escrita.",
+    "cta_button": "COTIZAR MI OBRA",
+    "services_button": "VER SERVICIOS",
+    "feature1_title": "24 H",
+    "feature1_description": "RESPUESTA INICIAL",
+    "feature2_title": "PRESUPUESTO",
+    "feature2_description": "CERRADO",
+    "feature3_title": "GARANTÍA",
+    "feature3_description": "ESCRITA"
+  },
+  "metodo": {
+    "tagline": "Método",
+    "title": "Cómo trabajamos.",
+    "description": "Una conversación, un presupuesto y un equipo responsable de principio a fin.",
+    "step1": "Nos escribís por WhatsApp y nos mandás una foto.",
+    "step2": "Te damos una orientación inicial y coordinamos una visita si hace falta.",
+    "step3": "Recibís un presupuesto cerrado por el trabajo terminado.",
+    "step4": "Aprobás, coordinamos día y hora, y lo hacemos."
+  },
+
+  "box1": {
+    "tagline": "Box 01 · Mantenimiento",
+    "title": "Un equipo para tu casa.",
+    "description": "Un solo interlocutor para todos los trabajos de la propiedad: mantenimiento, reparaciones, puesta a punto y seguridad, con tiempos coordinados y garantía escrita.",
+    "feature1_title": "Mantenimiento general",
+    "feature1_description": "Viviendas y propiedades: filtraciones, sellados, ajustes, pintura y terminaciones.",
+    "feature2_title": "Reparaciones",
+    "feature2_description": "Plomería, electricidad y albañilería.",
+    "feature3_title": "Regulación de muebles y aberturas",
+    "feature3_description": "Puertas, ventanas, placards, alacenas y herrajes.",
+    "feature4_title": "Puesta a punto",
+    "feature4_description": "Propiedades listas para entrega, venta o alquiler.",
+    "feature5_title": "Edificios y consorcios",
+    "feature5_description": "Mantenimiento programado con informe al administrador.",
+    "feature6_title": "Seguridad y conectividad",
+    "feature6_description": "Cámaras de seguridad, alarmas, internet, porteros y cerraduras biométricas."
+
+  },
+  "box2": {
+    "tagline": "Box 02 · Reforma",
+    "title": "Un equipo para tu obra.",
+    "description": "Diseñamos, fabricamos e instalamos soluciones completas con una dirección clara de cada etapa.",
+    "feature1_title": "Arquitectura y diseño",
+    "feature1_description": "Proyectamos soluciones funcionales para cada escala de obra.",
+    "feature2_title": "Ejecución y dirección de obra",
+    "feature2_description": "Planificamos, coordinamos y ejecutamos cada etapa.",
+    "feature3_title": "Herrería",
+    "feature3_description": "Parrillas, campanas, tirajes, barandas, puertas y portones. Provisión e instalación",
+    "feature4_title": "Carpintería",
+    "feature4_description": "Placards, alacenas y bajomesadas a medida. Provisión e instalación.",
+    "feature5_title": "Aberturas",
+    "feature5_description": "Instalamos aberturas de PVC y aluminio.",
+    "feature6_title": "Decks de PVC",
+    "feature6_description": "Diseñamos e instalamos superficies exteriores durables.",
+    "feature7_title": "Señales débiles",
+    "feature7_description": "Diseño e instalación: cableado estructurado, redes, CCTV y domótica."
+
+  },
+  "equipo": {
+    "tagline": "Equipo",
+    "title": "Oficio, criterio y responsabilidad.",
+    "description": "BE—BOXES es la unidad de servicios de Berlín Houses. Trabajamos como un solo equipo frente a cada cliente."
+  },
+  "abono": {
+    "tagline": "Mantenimiento",
+    "title": "Abonos para anticiparse.",
+    "description": "Revisamos, informamos y resolvemos antes de que un problema crezca.",
+    "hogar": {
+      "tagline": "Hogar",
+      "title": "Abono hogar",
+      "item1": "Visita periódica de revisión",
+      "item2": "Informe con fotos",
+      "item3": "Arreglos menores incluidos",
+      "item4": "Prioridad de atención",
+      "button": "Consultar abono hogar"
+    },
+
+    "edificios": {
+      "tagline": "Edificios y consorcios",
+      "title": "UN SOLO EQUIPO PARA TODO EL EDIFICIO",
+      "item1": "Mantenimiento preventivo de espacios comunes",
+      "item2": "Informe mensual al administrador",
+      "item3": "Respuesta prioritaria ante urgencias",
+      "button": "ver propuesta"
+    }
+  },
+
+  "garantia": {
+    "tagline": "Garantía y cobertura",
+    "title": "Si algo falla, volvemos.",
+    "description": "Todos los trabajos tienen garantía escrita de seis meses. Cubrimos La Plata, City Bell, Gonnet, Villa Elisa y Berisso.",
+    "preguntas": "Preguntas frecuentes",
+
+    "pregunta1": "¿Cómo cobran?",
+    "respuesta1": "Por trabajo terminado, contra presupuesto cerrado y aprobado antes de empezar. Aceptamos efectivo, transferencia o tarjeta.",
+
+    "pregunta2": "¿Facturan?",
+    "respuesta2": "Sí. Emitimos factura por todos los trabajos.",
+
+    "pregunta3": "¿En cuánto tiempo vienen?",
+    "respuesta3": "Respondemos dentro de las 24 horas hábiles y coordinamos la visita en la misma conversación.",
+
+    "pregunta4": "¿Qué pasa si el trabajo sale mal?",
+    "respuesta4": "Volvemos y lo resolvemos sin costo dentro del plazo de garantía escrita que figura en el presupuesto.",
+
+    "pregunta5": "¿Hay que estar presente?",
+    "respuesta5": "Preferimos que estés en la primera visita. Después coordinamos según tu disponibilidad.",
+
+    "pregunta6": "¿Trabajan fines de semana?",
+    "respuesta6": "Atendemos los sábados por la mañana para urgencias coordinadas previamente."
+
+
+  },
+
+  "contacto": {
+    "tagline": "Empecemos",
+    "title": "Mandanos una foto. Te decimos cómo resolverlo.",
+    "description": "Coordinamos la visita, confirmamos el precio y dejamos la garantía por escrito.",
+    "boton": "Escribinos por WhatsApp"
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados 2026"
+  }
+}

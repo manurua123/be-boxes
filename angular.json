@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "2d4c7370-b776-4621-9770-f0a08166d2eb"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -27,6 +28,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "prerender": true,
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -43,6 +45,9 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server.ts"
+            },
+            "security": {
+              "allowedHosts": []
             }
           },
           "configurations": {

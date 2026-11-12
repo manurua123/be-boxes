@@ -1,0 +1,87 @@
+/* Contenedor principal del footer */
+.site-footer {
+  background-color: #f3f1ec; /* Mismo color claro que tenías en tus variables */
+  padding: 60px 0;
+  font-family: 'Space Mono', monospace; /* Tipografía del diseño */
+  border-top: 1px solid #dedcdc; /* Opcional: una línea para separar del contenido */
+  font-family: 'Space Mono', monospace;
+}
+
+/* Flexbox para alinear las columnas */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Columnas */
+.footer-col {
+  flex: 1; /* Hace que las columnas ocupen un espacio equitativo */
+}
+
+/* La primera columna puede necesitar un poco más de espacio visual */
+.brand-col {
+  flex: 1.5;
+}
+
+/* Estilos del Logo */
+.footer-logo {
+  max-width: 160px; /* Ajusta este valor según el tamaño real de tu logo */
+  margin-bottom: 24px;
+  display: block;
+}
+
+/* Texto de la dirección */
+.footer-address {
+  color: #7a7a7a; /* Color grisáceo basado en el diseño */
+  text-transform: uppercase;
+  letter-spacing: 0em;
+  margin: 0;
+  font-size: 0.8em; /* Tamaño de fuente pequeño para el footer */
+  font-family: 'Space Mono', monospace;
+}
+
+/* Listas de enlaces */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+/* Enlaces */
+.footer-links a {
+  text-decoration: none;
+  color: #121417; /* Color oscuro */
+  text-transform: uppercase;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+  font-size: 0.8em !important; /* Tamaño de fuente pequeño para el footer */
+  font-family: 'Space Mono', monospace;
+}
+
+.footer-links a:hover {
+ color: #DA3B2A
+}
+
+/* Diseño Responsivo para móviles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Apila las columnas verticalmente en pantallas pequeñas */
+    gap: 40px;
+  }
+
+  .footer-col {
+    text-align: center; /* Opcional: centrar el texto en móviles */
+  }
+
+  .footer-logo {
+    margin: 0 auto 24px auto; /* Centra el logo en móviles */
+  }
+}

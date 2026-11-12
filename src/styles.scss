@@ -1,1 +1,191 @@
-/* You can add global styles to this file, and also import other style files */
+// Include theming for Angular Material...
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  color-scheme: light;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  background-color: #f3f1ec
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,400..900&family=Space+Mono:wght@400&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  color: #121417;
+  scroll-padding-top: 90px;
+  background-color: #f3f1ec;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #121417;
+}
+
+/* ==========================================================================
+   Variables de Color
+   ========================================================================== */
+:root {
+  --text-2: #333333;
+  --grey-2: #888888;
+}
+
+/* ==========================================================================
+   Tipografía
+   ========================================================================== */
+.display-logo {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.95;
+}
+
+h1,
+.text-h1 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+
+  font-size: 40px;
+  @media (min-width: 768px) {
+    font-size: 54px;
+  }
+}
+
+h2,
+.text-h2 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 26px;
+}
+
+h3 {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+}
+
+p,
+.texto,
+a {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+.texto-medium {
+  font-weight: 500;
+}
+
+.etiqueta {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-2);
+}
+
+/* ==========================================================================
+   Clases Globales de Estructura y Botones
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.btn-primary {
+  background-color: #111111;
+  color: #f3f1ec;
+  border: none;
+  padding: 14px 28px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #333333;
+  }
+}
+
+::selection {
+  background-color: #121417;
+  color: #f3f1ec;
+}
+
+/* ==========================================================================
+   Modificaciones para MatDialog y Scrollbar
+   ========================================================================== */
+.modal-sin-bordes .mdc-dialog__surface {
+  border-radius: 10px !important;
+  padding: 0 !important;
+}
+
+.modal-sin-bordes .mat-mdc-dialog-container,
+.modal-sin-bordes .mat-dialog-container {
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f3f1ec;
+}
+::-webkit-scrollbar-thumb {
+  background: #da3b2a;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c03224;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

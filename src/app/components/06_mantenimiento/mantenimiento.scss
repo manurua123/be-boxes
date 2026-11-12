@@ -1,0 +1,152 @@
+.abono-section {
+  padding-top: 80px;
+  border-bottom: 1px solid #dedcdc;
+  padding-bottom: 80px;
+}
+
+.titulo {
+  border-bottom: 2px solid #121417;
+}
+
+.tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 24px;
+  text-align: left;
+  opacity: 0.8;
+  /* Ajusta la opacidad según el diseño */
+}
+
+h2 {
+  margin: 0 0 24px 0;
+  line-height: 0.95;
+  padding-left: 30%;
+  font-size: 2.5em;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding-left: 30%;
+}
+
+.contenido {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.abono {
+  width: 50%;
+  padding: 2% 4%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+
+
+}
+
+.abono h3 {
+  font-family: 'Archivo', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+.hogar {
+  border: 1px solid #dedcdc;
+}
+.edificios {
+  background-color: #121417;
+  color: #f3f1ec !important;
+  border: 1px solid #121417;
+}
+.edificios p {
+  color: #f3f1ec;
+}
+
+.elemento {
+  border-bottom: 1px solid #dedcdc;
+  padding: 16px 0;
+  margin: 0;
+}
+
+h3 + .elemento {
+  border-top: 1px solid #dedcdc;
+}
+
+.edificios .elemento,
+.edificios h3 + .elemento {
+  border-color: #3a3a3a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-primary {
+  margin-top: 24px;
+  border: none;
+  padding: 14px 28px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hogar .btn-primary {
+  background-color: transparent;
+  color: #121417;
+  border: 2px solid #121417;
+}
+
+.edificios .btn-primary {
+  background-color: transparent;
+  color: #f3f1ec;
+  border: 2px solid #f3f1ec;
+}
+/* ==========================================================================
+   Media Queries para Móvil (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .abono-section {
+    padding-bottom: 40px;
+  }
+
+  h2 {
+    padding-left: 0; /* Eliminamos el margen del 30% */
+    font-size: 2em;
+  }
+
+  .descripcion {
+    padding-left: 0; /* Eliminamos el margen del 30% */
+    margin-bottom: 30px;
+  }
+
+  /* Configuramos el contenedor para apilar las tarjetas en columna */
+  .contenido {
+    flex-direction: column;
+    gap: 30px; /* Añade un espacio entre la tarjeta de Hogar y la de Edificios */
+  }
+
+  /* Las tarjetas pasan a ocupar todo el ancho disponible */
+  .abono {
+    width: 100%;
+    padding: 30px 20px; /* Cambiamos el porcentaje por píxeles fijos para asegurar buenos márgenes en celular */
+  }
+}

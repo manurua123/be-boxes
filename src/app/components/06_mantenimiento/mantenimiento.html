@@ -1,0 +1,52 @@
+<section class="abono-section">
+  <div class="container">
+    <div class="titulo">
+      <p class="tagline">{{ 'abono.tagline' | content }}</p>
+
+      <h2>{{ 'abono.title' | content }}</h2>
+      <p class="descripcion">
+        {{ 'abono.description' | content }}
+      </p>
+    </div>
+    <div class="contenido">
+      <div class="abono hogar">
+        <p class="tagline">{{ 'abono.hogar.tagline' | content }}</p>
+        <h3>{{ 'abono.hogar.title' | content }}</h3>
+        <p class="elemento">
+          {{ 'abono.hogar.item1' | content }}
+        </p>
+        <p class="elemento">
+          {{ 'abono.hogar.item2' | content }}
+        </p>
+        <p class="elemento">
+          {{ 'abono.hogar.item3' | content }}
+        </p>
+        <p class="elemento">
+          {{ 'abono.hogar.item4' | content }}
+        </p>
+
+        <button class="btn-primary" (click)="abrirWhatsApp()">
+          {{ 'abono.hogar.button' | content }}
+        </button>
+      </div>
+
+      <div class="abono edificios">
+        <p class="tagline">{{ 'abono.edificios.tagline' | content }}</p>
+        <h3>{{ 'abono.edificios.title' | content }}</h3>
+        <p class="elemento">
+          {{ 'abono.edificios.item1' | content }}
+        </p>
+        <p class="elemento">
+          {{ 'abono.edificios.item2' | content }}
+        </p>
+        <p class="elemento">
+          {{ 'abono.edificios.item3' | content }}
+        </p>
+
+        <button class="btn-primary"  (click)="abrirVentana()">
+          {{ 'abono.edificios.button' | content }}
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

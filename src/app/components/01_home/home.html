@@ -1,0 +1,51 @@
+<!-- home.component.html -->
+<header id="home">
+  <section class="hero-section">
+    <div class="container">
+      <!-- Bloque Superior: Textos y Botones -->
+      <div class="hero-content">
+        <span class="tagline">{{ 'home.tagline' | content }}</span>
+
+        <h1>{{ 'home.title' | content }}</h1>
+
+        <p class="descripcion">
+          {{ 'home.description' | content }}
+        </p>
+
+        <div class="hero-botones">
+          <button class="btn-primary" (click)="abrirWhatsApp()">
+            {{ 'home.cta_button' | content }}
+          </button>
+          <button class="btn-outline" routerLink="/box1">
+            {{ 'home.services_button' | content }}
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-features">
+        <div class="feature">
+          <h2>{{ 'home.feature1_title' | content }}</h2>
+          <span class="etiqueta">{{ 'home.feature1_description' | content }}</span>
+        </div>
+        <div class="feature">
+          <h2>{{ 'home.feature2_title' | content }}</h2>
+          <span class="etiqueta">{{ 'home.feature2_description' | content }}</span>
+        </div>
+        <div class="feature">
+          <h2>{{ 'home.feature3_title' | content }}</h2>
+          <span class="etiqueta">{{ 'home.feature3_description' | content }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <img src="assets/img/linea-de-meta_negro.png" alt="Cinta decorativa" class="cinta" />
+</header>
+
+<app-metodo id="nosotros"></app-metodo>
+ <app-box1 id="hogar"></app-box1>
+<app-box2 id="construccion"></app-box2>
+<app-equipo id="equipo"></app-equipo>
+<app-mantenimiento id="abonos"></app-mantenimiento>
+<app-garantia id="garantia"></app-garantia>
+<app-contacto id="contacto"></app-contacto>

@@ -1,0 +1,106 @@
+.metodo-section {
+  padding-top: 80px;
+  border-bottom: 1px solid #dedcdc;
+  padding-bottom: 80px;
+}
+
+.titulo {
+  border-bottom: 2px solid #121417;
+}
+
+.tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 24px;
+  text-align: left;
+  opacity: 0.8; /* Ajusta la opacidad según el diseño */
+}
+
+h2 {
+  margin: 0 0 24px 0;
+  line-height: 0.95;
+  padding-left: 30%;
+  font-size: 2.5em;
+}
+
+.descripcion {
+  font-family: 'Archivo', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  padding-left: 30%;
+}
+
+
+
+.cuadrados {
+  margin-top: 40px;
+  display: flex;
+  /* Agregamos el borde exterior al contenedor completo */
+  border: 1px solid #dcdcdc;
+}
+
+.cuadrado {
+  flex: 1; /* Hace que todos los cuadrados tengan exactamente el mismo ancho */
+  padding: 40px 30px; /* Aumentamos el padding para igualar la imagen */
+  border-right: 1px solid #dcdcdc; /* Agrega la línea vertical separadora */
+}
+
+/* Quitamos la línea vertical del último elemento para que no quede doble borde */
+.cuadrado:last-child {
+  border-right: none;
+}
+
+.cuadrado .tagline {
+  display: block; /* Necesario para que tome el margin-bottom */
+  color: #da3b2a;
+  font-weight: 700;
+  margin-bottom: 40px; /* Espacio entre el número y el párrafo */
+  font-family: monospace; /* El número parece tener una tipografía monoespaciada */
+  font-size: 14px;
+}
+
+.cuadrado p {
+  margin: 0; /* Limpiamos los márgenes por defecto del párrafo */
+  color: #3b4654; /* Color de texto un poco más gris/azulado */
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* ==========================================================================
+   Media Queries para Móvil (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .metodo-section {
+    scroll-margin-top: 90px !important;
+    padding-bottom: 40px;
+  }
+
+  h2 {
+    padding-left: 0; /* Fundamenal: quitamos el margen del 30% para que no aplaste el texto */
+    font-size: 2em; /* Ajustamos apenitas el tamaño */
+  }
+
+  .descripcion {
+    padding-left: 0; /* Lo mismo, alineamos a la izquierda como el resto */
+    margin-bottom: 30px;
+  }
+
+  /* Transformamos la fila en una columna apilada */
+  .cuadrados {
+    flex-direction: column;
+  }
+
+  .cuadrado {
+    padding: 30px 20px;
+    border-right: none; /* Eliminamos la línea divisoria vertical */
+    border-bottom: 1px solid #dcdcdc; /* Agregamos la línea divisoria horizontal entre pasos */
+  }
+
+  /* El último cuadrado no lleva línea abajo porque el contenedor .cuadrados ya tiene el borde exterior */
+  .cuadrado:last-child {
+    border-bottom: none;
+  }
+}
