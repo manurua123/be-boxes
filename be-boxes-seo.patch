@@ -1,0 +1,219 @@
+From 2ce7777c53eb0d6ffdc86e30b53a1fd9f89ba90f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 12 Nov 2026 12:16:55 +0000
+Subject: [PATCH] =?UTF-8?q?SEO:=20t=C3=ADtulos/description/canonical=20por?=
+ =?UTF-8?q?=20p=C3=A1gina,=20sitemap=20con=20/hogar/=20y=20/construccion/,?=
+ =?UTF-8?q?=20301=20de=20/box1/=20y=20/box2/?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ public/.htaccess              |  5 +++++
+ public/sitemap.xml            |  6 +++++
+ src/app/app-routing-module.ts | 18 +++++++++------
+ src/app/app.ts                | 41 ++++++++++++++++++++++++++++-------
+ src/app/seo.ts                | 35 ++++++++++++++++++++++++++++++
+ src/server.ts                 |  6 +++++
+ 6 files changed, 96 insertions(+), 15 deletions(-)
+ create mode 100644 src/app/seo.ts
+
+diff --git a/public/.htaccess b/public/.htaccess
+index 774f459..4f3bbce 100644
+--- a/public/.htaccess
++++ b/public/.htaccess
+@@ -1,6 +1,11 @@
+ <IfModule mod_rewrite.c>
+   RewriteEngine On
+ 
++  # Rutas viejas: redirección permanente (301) a las nuevas.
++  # Van primero para que nunca se sirva la página con 200.
++  RewriteRule ^box1/?$ /hogar/ [R=301,L]
++  RewriteRule ^box2/?$ /construccion/ [R=301,L]
++
+   # Si el archivo o carpeta existe físicamente (como una imagen o un CSS), sírvelo normal
+   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+diff --git a/public/sitemap.xml b/public/sitemap.xml
+index d605340..21fc61f 100644
+--- a/public/sitemap.xml
++++ b/public/sitemap.xml
+@@ -3,4 +3,10 @@
+   <url>
+     <loc>https://boxes.berlin.com.ar/</loc>
+   </url>
++  <url>
++    <loc>https://boxes.berlin.com.ar/hogar/</loc>
++  </url>
++  <url>
++    <loc>https://boxes.berlin.com.ar/construccion/</loc>
++  </url>
+ </urlset>
+diff --git a/src/app/app-routing-module.ts b/src/app/app-routing-module.ts
+index 09f9df3..61d7940 100644
+--- a/src/app/app-routing-module.ts
++++ b/src/app/app-routing-module.ts
+@@ -1,15 +1,19 @@
+ import { NgModule } from '@angular/core';
+ import { RouterModule, Routes } from '@angular/router';
+ import { Home } from './components/01_home/home';
++import { SEO_CONSTRUCCION, SEO_HOGAR, SEO_HOME } from './seo';
+ 
+ const routes: Routes = [
+-  { path: '', component: Home },
+-  { path: 'construccion', component: Home },
+-  { path: 'hogar', component: Home },
+-  { path: 'nosotros', component: Home },
+-  { path: 'equipo', component: Home },
+-  { path: 'abonos', component: Home },
+-  { path: 'contacto', component: Home },
++  { path: '', component: Home, data: { seo: SEO_HOME } },
++  { path: 'construccion', component: Home, data: { seo: SEO_CONSTRUCCION } },
++  { path: 'hogar', component: Home, data: { seo: SEO_HOGAR } },
++  { path: 'nosotros', component: Home, data: { seo: SEO_HOME } },
++  { path: 'equipo', component: Home, data: { seo: SEO_HOME } },
++  { path: 'abonos', component: Home, data: { seo: SEO_HOME } },
++  { path: 'contacto', component: Home, data: { seo: SEO_HOME } },
++  // Rutas viejas: el 301 real lo hacen .htaccess / server.ts; esto cubre la navegación interna.
++  { path: 'box1', redirectTo: 'hogar', pathMatch: 'full' },
++  { path: 'box2', redirectTo: 'construccion', pathMatch: 'full' },
+   { path: '**', redirectTo: '' },
+ ];
+ 
+diff --git a/src/app/app.ts b/src/app/app.ts
+index 7f323e8..37f21e5 100644
+--- a/src/app/app.ts
++++ b/src/app/app.ts
+@@ -1,9 +1,10 @@
+-import { Component, inject, OnInit } from '@angular/core';
+-import { Router, NavigationEnd } from '@angular/router';
++import { Component, inject, OnInit, DOCUMENT } from '@angular/core';
++import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+ import { ViewportScroller } from '@angular/common';
+ import { filter } from 'rxjs/operators';
+ import { Title, Meta } from '@angular/platform-browser';
+ import { ContentService } from './services/content.service';
++import { SEO_HOME, SeoData, SITE_URL } from './seo';
+ 
+ @Component({
+   selector: 'app-root',
+@@ -11,12 +12,12 @@ import { ContentService } from './services/content.service';
+   standalone: false,
+   styleUrl: './app.scss',
+ })
+-export class App {
+-
++export class App implements OnInit {
+   private titleService = inject(Title);
+   private metaService = inject(Meta);
+   private contentService = inject(ContentService);
+-
++  private document = inject(DOCUMENT);
++  private route = inject(ActivatedRoute);
+ 
+   constructor(
+     private router: Router,
+@@ -24,10 +25,9 @@ export class App {
+   ) {}
+ 
+   ngOnInit() {
+-
+-
+-
+     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
++      this.applySeo();
++
+       const path = this.router.url.split('?')[0].split('#')[0].substring(1);
+ 
+       if (path && path !== '') {
+@@ -39,4 +39,29 @@ export class App {
+       }
+     });
+   }
++
++  /** Título, description, canonical y Open Graph/Twitter según la ruta activa. */
++  private applySeo(): void {
++    let r = this.route;
++    while (r.firstChild) r = r.firstChild;
++    const seo: SeoData = r.snapshot.data['seo'] ?? SEO_HOME;
++    const url = SITE_URL + seo.path;
++
++    this.titleService.setTitle(seo.title);
++    this.metaService.updateTag({ name: 'description', content: seo.description });
++    this.metaService.updateTag({ property: 'og:url', content: url });
++    this.metaService.updateTag({ property: 'og:title', content: seo.title });
++    this.metaService.updateTag({ property: 'og:description', content: seo.description });
++    this.metaService.updateTag({ property: 'twitter:url', content: url });
++    this.metaService.updateTag({ property: 'twitter:title', content: seo.title });
++    this.metaService.updateTag({ property: 'twitter:description', content: seo.description });
++
++    let canonical = this.document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
++    if (!canonical) {
++      canonical = this.document.createElement('link');
++      canonical.setAttribute('rel', 'canonical');
++      this.document.head.appendChild(canonical);
++    }
++    canonical.setAttribute('href', url);
++  }
+ }
+diff --git a/src/app/seo.ts b/src/app/seo.ts
+new file mode 100644
+index 0000000..139ca33
+--- /dev/null
++++ b/src/app/seo.ts
+@@ -0,0 +1,35 @@
++// Título, descripción y URL canónica de cada página.
++// Se aplican en cada navegación (y durante el prerender), así el HTML
++// estático de /hogar/ y /construccion/ ya sale con sus propios datos.
++
++export const SITE_URL = 'https://boxes.berlin.com.ar';
++
++export interface SeoData {
++  title: string;
++  description: string;
++  /** Ruta canónica, con barra final (ej. '/hogar/'). */
++  path: string;
++}
++
++export const SEO_HOME: SeoData = {
++  title: 'BE—BOXES® · Arreglos, instalaciones y mejoras para tu casa y tu obra · La Plata',
++  description:
++    'Arreglos, instalaciones y mejoras para tu casa y tu obra en La Plata. Presupuesto cerrado y garantía escrita.',
++  path: '/',
++};
++
++export const SEO_HOGAR: SeoData = {
++  title:
++    'BE—BOXES® · Servicio al hogar · Mantenimiento, reparaciones y puesta a punto · La Plata',
++  description:
++    'Mantenimiento, reparaciones, regulación de aberturas, puesta a punto y seguridad para viviendas, edificios y consorcios en La Plata. Presupuesto cerrado y garantía escrita.',
++  path: '/hogar/',
++};
++
++export const SEO_CONSTRUCCION: SeoData = {
++  title:
++    'BE—BOXES® · Servicio a la construcción · Arquitectura, herrería, carpintería y aberturas · La Plata',
++  description:
++    'Arquitectura, dirección de obra, herrería, carpintería, aberturas, decks y señales débiles para obras en La Plata. Un solo equipo, presupuesto cerrado.',
++  path: '/construccion/',
++};
+diff --git a/src/server.ts b/src/server.ts
+index 4bf0631..b0ed1bc 100644
+--- a/src/server.ts
++++ b/src/server.ts
+@@ -24,6 +24,12 @@ const angularApp = new AngularNodeAppEngine();
+  * ```
+  */
+ 
++/**
++ * Rutas viejas: redirección permanente (301) a las nuevas.
++ */
++app.get(['/box1', '/box1/'], (_req, res) => res.redirect(301, '/hogar/'));
++app.get(['/box2', '/box2/'], (_req, res) => res.redirect(301, '/construccion/'));
++
+ /**
+  * Serve static files from /browser
+  */
+-- 
+2.43.0
+

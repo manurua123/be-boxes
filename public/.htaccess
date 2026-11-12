@@ -1,6 +1,11 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Rutas viejas: redirección permanente (301) a las nuevas.
+  # Van primero para que nunca se sirva la página con 200.
+  RewriteRule ^box1/?$ /hogar/ [R=301,L]
+  RewriteRule ^box2/?$ /construccion/ [R=301,L]
+
   # Si el archivo o carpeta existe físicamente (como una imagen o un CSS), sírvelo normal
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
   RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d

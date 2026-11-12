@@ -25,6 +25,12 @@ const angularApp = new AngularNodeAppEngine();
  */
 
 /**
+ * Rutas viejas: redirección permanente (301) a las nuevas.
+ */
+app.get(['/box1', '/box1/'], (_req, res) => res.redirect(301, '/hogar/'));
+app.get(['/box2', '/box2/'], (_req, res) => res.redirect(301, '/construccion/'));
+
+/**
  * Serve static files from /browser
  */
 app.use(
